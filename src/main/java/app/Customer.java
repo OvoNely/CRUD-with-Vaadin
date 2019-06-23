@@ -15,12 +15,15 @@ public class Customer {
 
     private String lastName;
 
+    private String gender;
+
     protected Customer() {
     }
 
-    public Customer(String firstName, String lastName) {
+    public Customer(String firstName, String lastName, String gender) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.gender = gender;
     }
 
     public Long getId() {
@@ -41,6 +44,14 @@ public class Customer {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     @Override

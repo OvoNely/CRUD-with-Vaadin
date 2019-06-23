@@ -20,11 +20,11 @@ public class Application {
     @Bean
     public CommandLineRunner loadData(CustomerRepository repository) {
         return args -> {
-            repository.save(new Customer("Jack", "Bauer"));
-            repository.save(new Customer("Chloe", "O'Brian"));
-            repository.save(new Customer("Kim", "Bauer"));
-            repository.save(new Customer("David", "Palmer"));
-            repository.save(new Customer("Michelle", "Dassler"));
+            repository.save(new Customer("Иван", "Иванов", "муж"));
+            repository.save(new Customer("Ирина", "Черепанова", "жен"));
+            repository.save(new Customer("Ольга", "Степанова", "жен"));
+            repository.save(new Customer("Сергей", "Александров", "муж"));
+            repository.save(new Customer("Михаил", "Королев", "муж"));
 
             log.info("Customers found with findAll():");
             log.info("-------------------------------");
@@ -39,10 +39,10 @@ public class Application {
             log.info(customer.toString());
             log.info("");
 
-            log.info("Customer found with findByLastNameStartsWithIgnoreCase(\"Bauer\"):");
+            log.info("Customer found with findByLastNameStartsWithIgnoreCase(\"Иванов\"):");
             log.info("--------------------------------");
-            for (Customer bauer : repository.findByLastNameStartsWithIgnoreCase("Bauer")) {
-                log.info(bauer.toString());
+            for (Customer ivanov : repository.findByLastNameStartsWithIgnoreCase("Иванов")) {
+                log.info(ivanov.toString());
             }
             log.info("");
         };

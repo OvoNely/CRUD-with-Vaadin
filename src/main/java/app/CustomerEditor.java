@@ -22,6 +22,7 @@ public class CustomerEditor extends VerticalLayout implements KeyNotifier {
 
     TextField firstName = new TextField("First name");
     TextField lastName = new TextField("Last name");
+    TextField gender = new TextField("Gender");
 
     Button save = new Button("Save", VaadinIcon.CHECK.create());
     Button cancel = new Button("Cancel");
@@ -35,7 +36,7 @@ public class CustomerEditor extends VerticalLayout implements KeyNotifier {
     public CustomerEditor(CustomerRepository repository) {
         this.repository = repository;
 
-        add(firstName, lastName, actions);
+        add(firstName, lastName, gender, actions);
 
         binder.bindInstanceFields(this);
 
