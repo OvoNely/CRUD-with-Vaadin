@@ -3,7 +3,6 @@ package app;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.icon.VaadinIcon;
-import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
@@ -35,7 +34,7 @@ public class MainView extends VerticalLayout{
         add(actions, grid, editor);
 
         grid.setHeight("300px");
-        grid.setColumns("id", "firstName", "lastName", "gender");
+        grid.setColumns("id", "firstName", "lastName", "gender", "birthDate");
         grid.getColumnByKey("id").setWidth("50px").setFlexGrow(0);
 
         filter.setPlaceholder("Filter by last name");
@@ -46,7 +45,7 @@ public class MainView extends VerticalLayout{
             editor.editCustomer(e.getValue());
         });
 
-        addNewBtn.addClickListener(e -> editor.editCustomer(new Customer("","", "")));
+        addNewBtn.addClickListener(e -> editor.editCustomer(new Customer("","", "", null)));
 
         editor.setChangeHandler(() -> {
             editor.setVisible(false);

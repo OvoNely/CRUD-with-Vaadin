@@ -3,6 +3,7 @@ package app;
 import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.KeyNotifier;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.datepicker.DatePicker;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
@@ -23,6 +24,7 @@ public class CustomerEditor extends VerticalLayout implements KeyNotifier {
     TextField firstName = new TextField("First name");
     TextField lastName = new TextField("Last name");
     TextField gender = new TextField("Gender");
+    DatePicker birthDate = new DatePicker("Birth Date");
 
     Button save = new Button("Save", VaadinIcon.CHECK.create());
     Button cancel = new Button("Cancel");
@@ -36,7 +38,7 @@ public class CustomerEditor extends VerticalLayout implements KeyNotifier {
     public CustomerEditor(CustomerRepository repository) {
         this.repository = repository;
 
-        add(firstName, lastName, gender, actions);
+        add(firstName, lastName, gender, birthDate, actions);
 
         binder.bindInstanceFields(this);
 

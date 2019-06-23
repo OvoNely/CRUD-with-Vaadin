@@ -3,6 +3,7 @@ package app;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.time.LocalDate;
 
 @Entity
 public class Customer {
@@ -17,13 +18,16 @@ public class Customer {
 
     private String gender;
 
+    private LocalDate birthDate;
+
     protected Customer() {
     }
 
-    public Customer(String firstName, String lastName, String gender) {
+    public Customer(String firstName, String lastName, String gender, LocalDate birthDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.gender = gender;
+        this.birthDate = birthDate;
     }
 
     public Long getId() {
@@ -54,10 +58,18 @@ public class Customer {
         this.gender = gender;
     }
 
+    public LocalDate getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(LocalDate birthDate) {
+        this.birthDate = birthDate;
+    }
+
     @Override
     public String toString() {
-        return String.format("Customer[id=%d, firstName='%s', lastName='%s']", id,
-                firstName, lastName);
+        return String.format("Customer[id=%d, firstName='%s', lastName='%s', gender='%s', birthDate='%s']", id,
+                firstName, lastName, gender, birthDate);
     }
 
 }
